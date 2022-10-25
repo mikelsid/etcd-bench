@@ -1,0 +1,12 @@
+apiVersion: etcd-bench.my.domain/v1
+kind: EtcdBenchmark
+metadata:
+  labels:
+    app.kubernetes.io/name: etcdbenchmark
+    app.kubernetes.io/instance: etcdbenchmark-sample
+    app.kubernetes.io/part-of: etcd-bench
+    app.kuberentes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: etcd-bench
+  name: etcdbenchmark-sample
+spec:
+  # TODO(user): Add fields here
