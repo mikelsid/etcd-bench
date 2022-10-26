@@ -66,10 +66,10 @@ func (r *WriterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctr
 	if len(writer.Spec.Data) != int(writer.Spec.Len) {
 		writer.Spec.Data = strings.Repeat("a", int(writer.Spec.Len))
 	}
+	writer.Spec.Pos = (writer.Spec.Pos + 1) % writer.Spec.Len
 	x := writer.Spec.Data[writer.Spec.Pos]
 	x = ((x-97)+1)%26 + 97
 	writer.Spec.Data = writer.Spec.Data[:writer.Spec.Pos] + string(x) + writer.Spec.Data[writer.Spec.Pos+1:]
-	writer.Spec.Pos = (writer.Spec.Pos + 1) % writer.Spec.Len
 	// writer.Spec.Data += string('Z')
 	// writer.Spec.Len = int32(len(writer.Spec.Data))
 

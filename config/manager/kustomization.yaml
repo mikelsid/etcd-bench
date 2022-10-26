@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: mixitd/etcd-bench
-  newTag: 0.0.2-amd64
+  newTag: 0.0.3-amd64

@@ -1,0 +1,7 @@
+apiVersion: etcd-bench.my.domain/v1
+kind: Writer
+metadata:
+  name: writer-1
+spec:
+  # TODO(user): Add fields here
+  len: 100000

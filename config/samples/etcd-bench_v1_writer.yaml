@@ -10,4 +10,4 @@ metadata:
   name: writer-sample
 spec:
   # TODO(user): Add fields here
-  len: 5
+  len: 100000
