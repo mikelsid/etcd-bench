@@ -1,0 +1,74 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.9.2
+  creationTimestamp: null
+  name: etcdbenchmarks.etcd-bench.my.domain
+spec:
+  group: etcd-bench.my.domain
+  names:
+    kind: EtcdBenchmark
+    listKind: EtcdBenchmarkList
+    plural: etcdbenchmarks
+    singular: etcdbenchmark
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: EtcdBenchmark is the Schema for the etcdbenchmarks API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: EtcdBenchmarkSpec defines the desired state of EtcdBenchmark
+            properties:
+              backend:
+                description: Foo is an example field of EtcdBenchmark. Edit etcdbenchmark_types.go
+                  to remove/update
+                properties:
+                  counterBackend:
+                    type: object
+                  podBackend:
+                    properties:
+                      command:
+                        items:
+                          type: string
+                        type: array
+                      image:
+                        type: string
+                    required:
+                    - image
+                    type: object
+                  type:
+                    type: string
+                required:
+                - type
+                type: object
+              replicas:
+                format: int32
+                type: integer
+            required:
+            - backend
+            - replicas
+            type: object
+          status:
+            description: EtcdBenchmarkStatus defines the observed state of EtcdBenchmark
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

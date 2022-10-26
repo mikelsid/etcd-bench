@@ -23,17 +23,19 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// CounterSpec defines the desired state of Counter
-type CounterSpec struct {
+// WriterSpec defines the desired state of Writer
+type WriterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Counter. Edit counter_types.go to remove/update
-	Count int32 `json:"count"`
+	// Foo is an example field of Writer. Edit writer_types.go to remove/update
+	Len  int32  `json:"len"`
+	Data string `json:"data,omitempty"`
+	Pos  int32  `json:"pos,omitempty"`
 }
 
-// CounterStatus defines the observed state of Counter
-type CounterStatus struct {
+// WriterStatus defines the observed state of Writer
+type WriterStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -41,24 +43,24 @@ type CounterStatus struct {
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// Counter is the Schema for the counters API
-type Counter struct {
+// Writer is the Schema for the writers API
+type Writer struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   CounterSpec   `json:"spec,omitempty"`
-	Status CounterStatus `json:"status,omitempty"`
+	Spec   WriterSpec   `json:"spec,omitempty"`
+	Status WriterStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// CounterList contains a list of Counter
-type CounterList struct {
+// WriterList contains a list of Writer
+type WriterList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []Counter `json:"items"`
+	Items           []Writer `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&Counter{}, &CounterList{})
+	SchemeBuilder.Register(&Writer{}, &WriterList{})
 }

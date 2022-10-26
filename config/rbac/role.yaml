@@ -1,0 +1,85 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - counters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - counters/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - counters/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - etcdbenchmarks
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - etcdbenchmarks/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - etcdbenchmarks/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - writers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - writers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - etcd-bench.my.domain
+  resources:
+  - writers/status
+  verbs:
+  - get
+  - patch
+  - update

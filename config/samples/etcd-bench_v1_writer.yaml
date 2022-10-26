@@ -1,12 +1,13 @@
 apiVersion: etcd-bench.my.domain/v1
-kind: Counter
+kind: Writer
 metadata:
   labels:
-    app.kubernetes.io/name: counter
-    app.kubernetes.io/instance: counter-sample
+    app.kubernetes.io/name: writer
+    app.kubernetes.io/instance: writer-sample
     app.kubernetes.io/part-of: etcd-bench
     app.kuberentes.io/managed-by: kustomize
     app.kubernetes.io/created-by: etcd-bench
-  name: counter-sample
+  name: writer-sample
 spec:
-  count: 0
+  # TODO(user): Add fields here
+  len: 5
